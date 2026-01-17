@@ -1,0 +1,27 @@
+name: Java Hello CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run-java:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Kodu al
+        uses: actions/checkout@v4
+
+      - name: Java kur
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Compile
+        run: javac src/Main.java
+
+      - name: Run
+        run: java -cp src Main
+
